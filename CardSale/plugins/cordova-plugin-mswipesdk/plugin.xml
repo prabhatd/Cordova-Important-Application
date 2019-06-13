@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        id="cordova-plugin-mswipesdk" version="1.0.5">
+    <name>MswipeSDKPlugin</name>
+
+    <description>An Mswipe Cordova plugin that allows to connect mswipe devices through bluetooth communication channel.</description>
+    <license>MIT</license>
+
+    <keywords>cordova,android</keywords>
+    <repo></repo>
+    <issue></issue>
+  
+    <engines>
+        <engine name="cordova" version=">=3.0.0"/>
+    </engines>
+  
+    <js-module src="www/mswipesdkplugin.js" name="MSCordovaController">
+        <clobbers target="window.plugins.MSCordovaController" />
+    </js-module>
+
+    <platform name="android">
+
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="MswipeSDKPlugin">
+                <param name="android-package" value="com.mswipesdk.cordova.MswipeSDKPlugin"/>
+            </feature>
+        </config-file>
+
+        <config-file target="AndroidManifest.xml" parent="/manifest">
+            <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+            <uses-permission android:name="android.permission.INTERNET" />
+            <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+            <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+            <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+            <uses-permission android:name="android.permission.WAKE_LOCK" />
+            <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+            <uses-permission android:name="android.permission.BLUETOOTH" />
+            <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+            <uses-permission android:name="android.permission.BBPOS" />
+
+
+        </config-file>
+
+        <source-file src="src/android/com/mswipesdk/cordova/MswipeSDKPlugin.java" target-dir="src/com/mswipesdk/cordova" />
+
+        <framework src="src/android/MswipeSDK.gradle" custom="true" type="gradleReference"/>
+
+        <lib-file src="src/android/MswipeWseriesUniversalDRDSDKVer1.0.5v3.4.2.aar"/>
+
+    </platform>
+
+
+    <platform name="ios">
+
+        <config-file target="config.xml" parent="/*">
+            <feature name="MswipeSDKPlugin">
+                <param name="ios-package" value="MswipeSDKPlugin" />
+            </feature>
+        </config-file>
+
+        <header-file src="src/ios/MswipeSDKPlugin.h" target-dir="MswipeSDKPlugin"/>
+        <source-file src="src/ios/MswipeSDKPlugin.m" target-dir="MswipeSDKPlugin"/>
+        <source-file src="src/ios/InstantiateViewControllerError.h" target-dir="MswipeSDKPlugin"/>
+        <source-file src="src/ios/InstantiateViewControllerError.m" target-dir="MswipeSDKPlugin"/>
+
+    </platform>
+
+</plugin>

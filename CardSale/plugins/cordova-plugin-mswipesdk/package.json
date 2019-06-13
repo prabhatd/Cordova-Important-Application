@@ -1,0 +1,32 @@
+{
+    "name": "MswipeSDKPlugin",
+    "version": "0.0.1",
+    "description": "An Mswipe Cordova plugin that allows to connect mswipe devices through bluetooth communication channel.",
+    "cordova": {
+      "id": "cordova-plugin-mswipesdk",
+      "platforms": [
+        "android",
+        "ios"
+      ]
+    },
+    "repository": {
+      "type": "",
+      "url": ""
+    },
+    "keywords": [
+      "cordova-android",
+      "cordova-ios"
+    ],
+    "engines": [
+      {
+        "name": "cordova",
+        "version": ">=3.0.0"
+      }
+    ],
+    "author": "mswipe",
+    "license": "MIT",
+    "bugs": {
+      "url": ""
+    },
+    "homepage": ""
+  }
